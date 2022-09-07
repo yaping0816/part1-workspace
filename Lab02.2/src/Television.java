@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Television {
 
   public static final int MIN_VOLUME = 0;
@@ -40,7 +42,17 @@ public class Television {
   }
 
   public void setBrand(String brand) {
-    this.brand = brand;
+    switch(brand){
+      case "Samsung":
+      case "LG":
+      case "Sony":
+      case "Toshiba":
+        this.brand = brand;
+        break;
+      default:
+        System.out.printf("%s is invalid; only Samsung, LG, Sony and Toshiba are allowed.%n",brand);
+    }
+
   }
 
   public int getVolume() {
@@ -50,7 +62,7 @@ public class Television {
   public void setVolume(int volume) {
     if (volume < MIN_VOLUME || volume >MAX_VOLUME){
       //%d is a placeholder for base 10 representation of integer value, here volume, MIN_VOLUME and MAX_VOLUME; $n for new line
-      System.out.printf("%d is invalid; volume muse between %d and %d (inclusive).%n", volume, MIN_VOLUME, MAX_VOLUME);
+      System.out.printf("%d is invalid; volume must between %d and %d (inclusive).%n", volume, MIN_VOLUME, MAX_VOLUME);
 
     }else {
       this.volume = volume;
