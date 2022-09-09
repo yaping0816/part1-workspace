@@ -26,6 +26,8 @@ public class TelevisionValidationTest {
     tvTester1.setBrand("toto");
     System.out.println(tvTester1);
 
+
+
   }
 
 }
