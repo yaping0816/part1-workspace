@@ -22,9 +22,9 @@ class DateTimeTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testNow();
-        // testCreate();
-        // testParse();
+//         testNow();
+//         testCreate();
+         testParse();
         // testFormat();
     }
 
@@ -33,6 +33,14 @@ class DateTimeTest {
      */
     public static void testNow() {
         // TODO
+        LocalDate date = LocalDate.now();
+        System.out.println(date);
+        LocalTime time = LocalTime.now();
+        System.out.println(time);
+        LocalDateTime dateTime = LocalDateTime.now();
+        System.out.println(dateTime);
+
+
     }
 
     /**
@@ -43,6 +51,12 @@ class DateTimeTest {
 
         // TODO: use of() to create a value representing the 1st lunar landing - it happened on 7/20/69 at 3:18pm Eastern Time.
         // NOTE: ignore time-zone, just assume Eastern Time is the local time.
+        LocalDate birthdayDate = LocalDate.of(1996, 10, 25);
+//        birthdayDate.getDayOfWeek();
+        System.out.println("I was born on "+ birthdayDate + " which was on " + birthdayDate.getDayOfWeek());
+
+        LocalDateTime lunar = LocalDateTime.of(1969, 7, 20, 15, 18);
+        System.out.println(lunar);
     }
 
     /**
@@ -52,6 +66,20 @@ class DateTimeTest {
         // TODO: create your birthday by parsing a text representation in standard format ("yyyy-MM-dd").
 
         // OPTIONAL: now create it by parsing text in the form "2/6/2014" (this is Feb 6, not Jun 2).
+
+        LocalDate bdate = LocalDate.parse("1994-07-19");
+        System.out.println(bdate);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        LocalDate newDate = LocalDate.parse("2014-02-06");
+        System.out.println(newDate.format(formatter));
+
+        DateTimeFormatter formatter2 =DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate bday3 = LocalDate.parse("07/19/1994", formatter2);
+        System.out.println(bday3);
+
+
+
     }
 
     /**
