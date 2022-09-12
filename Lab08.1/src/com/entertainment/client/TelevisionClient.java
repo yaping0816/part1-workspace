@@ -18,6 +18,7 @@ class TelevisionClient {
         System.out.println(tv);
         
         // TODO: change the channel
+        tv.changeChannel("Disney");
         
         System.out.println(tv);
     }
