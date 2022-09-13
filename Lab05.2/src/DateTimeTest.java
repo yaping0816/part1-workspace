@@ -23,9 +23,9 @@ class DateTimeTest {
      */
     public static void main(String[] args) {
 //         testNow();
-//         testCreate();
+         testCreate();
          testParse();
-        // testFormat();
+         testFormat();
     }
 
     /**
@@ -53,10 +53,10 @@ class DateTimeTest {
         // NOTE: ignore time-zone, just assume Eastern Time is the local time.
         LocalDate birthdayDate = LocalDate.of(1996, 10, 25);
 //        birthdayDate.getDayOfWeek();
-        System.out.println("I was born on "+ birthdayDate + " which was on " + birthdayDate.getDayOfWeek());
+        System.out.println("I was born on "+ birthdayDate + " which was a " + birthdayDate.getDayOfWeek());
 
         LocalDateTime lunar = LocalDateTime.of(1969, 7, 20, 15, 18);
-        System.out.println(lunar);
+        System.out.println("The lunar time is "+ lunar);
     }
 
     /**
@@ -74,8 +74,8 @@ class DateTimeTest {
         LocalDate newDate = LocalDate.parse("2014-02-06");
         System.out.println(newDate.format(formatter));
 
-        DateTimeFormatter formatter2 =DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate bday3 = LocalDate.parse("07/19/1994", formatter2);
+        DateTimeFormatter formatter2 =DateTimeFormatter.ofPattern("M/d/yyyy");
+        LocalDate bday3 = LocalDate.parse("2/6/2014", formatter2);
         System.out.println(bday3);
 
 
@@ -87,11 +87,22 @@ class DateTimeTest {
      */
     public static void testFormat() {
         LocalDate hastings = LocalDate.of(1066, 10, 14);
+        System.out.println("Hastings is "+ hastings);
 
         // TODO: 10/14/1066
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String date1 = formatter.format(hastings);
+        System.out.println(date1);
+
 
         // TODO: 14-10-1066
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String date2 = formatter2.format(hastings);
+        System.out.println(date2);
 
         // OPTIONAL: October 14, 1066
+        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+        String date3 = formatter3.format(hastings);
+        System.out.println(date3);
     }
 }
