@@ -20,6 +20,12 @@ public class HourlyEmployee extends Employee {
     setHours(hours);
   }
 
+  @Override
+  public void pay() {
+    System.out.printf("%s is paid hourly %.2f \n", getName(),(getHours()*getRate()));
+//    System.out.println("someone get paid in hourly");
+  }
+
   public double getRate() {
     return rate;
   }

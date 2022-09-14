@@ -9,7 +9,10 @@ public class SalariedEmployee extends Employee {
   public SalariedEmployee() {
   }
 
-
+  @Override
+  public void pay() {
+    System.out.printf("%s is paid salary %.2f.\n", getName(), getSalary());
+  }
   public void setSalary(double salary) {
     this.salary = salary;
   }

@@ -41,7 +41,7 @@ public class Employee {
     }
 
     public void pay() {
-        System.out.printf("%s is paid ... somehow%n", getName());
+        System.out.printf("%s is paid ... somehow \n", getName());
     }
 
     // accessor methods
