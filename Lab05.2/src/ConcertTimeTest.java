@@ -42,10 +42,14 @@ class ConcertTimeTest {
 //        America/Toronto
         LocalDateTime torontoTime = LocalDateTime.of(2020,6,18,19,0);
         ZoneId toronto = ZoneId.of("America/Toronto");
-        LocalDateTime localNow = LocalDateTime.now(toronto);
-        System.out.println("Local time is "+ localNow);
+//        LocalDateTime localNow = LocalDateTime.now(toronto);
+//        System.out.println("Local time is "+ localNow);
         ZoneId perth = ZoneId.of("Australia/Perth");
-        ZonedDateTime zoned = localNow.atZone(perth);
-        System.out.println(zoned);
+//        ZonedDateTime zoned = localNow.atZone(perth);
+//        System.out.println(zoned);
+        ZonedDateTime concertInToronto = ZonedDateTime.of(2020, 6, 18, 19, 0, 0, 0, toronto);
+        ZonedDateTime concertInPerth = concertInToronto.withZoneSameInstant(perth);
+        System.out.println(concertInPerth);
+
     }
 }
