@@ -8,6 +8,7 @@ public class HourlyEmployee extends Employee
 
   private double rate;
   private double hours;
+  public static final double DEFAULT_STANDARD_DEDUCTION = 1000.0;
 
   public HourlyEmployee() {
   }
@@ -55,6 +56,10 @@ public class HourlyEmployee extends Employee
     System.out.printf("%s paid taxes of %,.2f%n", getName(), HOURLY_TAX_RATE * getHours());
   }
 
+  @Override
+  public double getStandardDeduction() {
+    return DEFAULT_STANDARD_DEDUCTION;
+  }
   // TODO: 9/13/22 declare and implement a constructor that takes name,hireDate, rate and hours as parameter
   // TODO: 9/13/22 generate setters and getters for rate and hour 
   // TODO: 9/13/22 override toString 
