@@ -22,7 +22,7 @@ public class HourlyEmployee extends Employee {
 
   @Override
   public void pay() {
-    System.out.printf("%s is paid hourly %.2f \n", getName(),(getHours()*getRate()));
+    System.out.printf("%s is paid hourly, for a total of %,.2f%n", getName(),getHours()*getRate());
 //    System.out.println("someone get paid in hourly");
   }
 

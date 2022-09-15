@@ -55,7 +55,8 @@ public class Department {
 
     public  void payEmployees() {
         for(int i = 0; i < currentIndex; i++) {
-            employees[i].pay();
+            employees[i].pay(); //The Department only "sees" Employee since sees them as reference type Employee, but polymorphism call method based on the real type of the objects receiving the call, but it only applicable when you have inheritance and method overriding, that's why I have to add pay() in super class Employee.
+            // Without polymorphism, all the employee types in the array are referenced only as Employee
         }
 
 
