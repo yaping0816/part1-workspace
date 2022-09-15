@@ -16,7 +16,7 @@ import gov.irs.TaxPayer;
 public class Corporation implements TaxPayer {
     private String name;
 
-    public Corporation(String name) {
+    public Corporation(String name) { //constructor
         setName(name);
     }
 
