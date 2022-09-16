@@ -8,6 +8,9 @@
 
 package com.hr.personnel;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * The Department class manages employees.
  *
@@ -26,10 +29,10 @@ public class Department {
     // fields
     private String name;
     private String location;
-    private Employee[] employees = new Employee[100];
-    private int currentIndex = 0;  // for dealing with the array
+    private final Collection<Employee> employees = new ArrayList<>(); //can't re-assign with final, can't change the pointer
 
     // constructors
+    @SuppressWarnings("unused")
     public Department() {
     }
 
@@ -42,20 +45,20 @@ public class Department {
     public void listEmployees() {
         // Note: we don't use for-each here because we only want to access the array where employees were added.
         // Question: what is in the array for indices where no Employee was added?  null!
-        for (int i = 0; i < currentIndex; i++) {
-            System.out.println(employees[i]);  // toString() automatically called
+        for (Employee emp:employees) {
+            System.out.println(emp);  // toString() automatically called
         }
     }
 
     public void workEmployees() {
-        for (int i = 0; i < currentIndex; i++) {
-            employees[i].work();
+        for (Employee emp:employees) {
+            emp.work();
         }
     }
 
     public  void payEmployees() {
-        for(int i = 0; i < currentIndex; i++) {
-            employees[i].pay(); //The Department only "sees" Employee since sees them as reference type Employee, but polymorphism call method based on the real type of the objects receiving the call, but it only applicable when you have inheritance and method overriding, that's why I have to add pay() in super class Employee.
+        for(Employee emp:employees) {
+            emp.pay(); //The Department only "sees" Employee since sees them as reference type Employee, but polymorphism call method based on the real type of the objects receiving the call, but it only applicable when you have inheritance and method overriding, that's why I have to add pay() in super class Employee.
             // Without polymorphism, all the employee types in the array are referenced only as Employee
         }
 
@@ -64,7 +67,7 @@ public class Department {
 
     // helper method to add an Employee to the array
     public void addEmployee(Employee emp) {
-        employees[currentIndex++] = emp;
+        employees.add(emp);
     }
 
     // accessor methods
